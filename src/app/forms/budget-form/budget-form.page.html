@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>budget-form</ion-title>
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Libéllé</ion-label>
+      <ion-input type="text" [(ngModel)]="budget.label"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Catégorie</ion-label>
+      <ion-input type ="text"[(ngModel)]="budget.category"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="stacked">Montant</ion-label>
+        <ion-input type ="number"[(ngModel)]="budget.amount"></ion-input>
+    </ion-item>
+    <ion-item>
+          <ion-label position="stacked">Date</ion-label>
+          <ion-datetime [(ngModel)]="budget.createdAt"></ion-datetime>
+    </ion-item>
+      
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" (click)="goBack()">
+            Retour
+          </ion-button>
+        </ion-col>
+
+        <ion-col>
+            <ion-button expand="block" (click)="validateForm()">
+              Valider
+            </ion-button>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

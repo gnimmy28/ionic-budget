@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { BudgetService } from '../services/budget-service';
+import { BudgetEntry } from '../entity/budget-entry';
+import { Events } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +10,25 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  public budgetList: Array<BudgetEntry> = [];
+
+  constructor(private events: Events) {
+
+    //Abonnement à l'événement d'ajoute d'une dépense
+    this.events.subscribe("new", (data) => {
+      let budgetInfo = JSON.parse(data);
+      this.budgetList.push(budgetInfo);
+    });
+
+    //this.budgetList = this.budgetService.getBudgetList();
+
+  }
+
+
+  ionViewDidEnter() {
+
+    console.log(this.budgetList);
+  }
+
 
 }
